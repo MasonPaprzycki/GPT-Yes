@@ -1,0 +1,24 @@
+the purpose of this program is to bypass ai detection software 
+
+program framework:
+    1. the program will take input from the user 
+
+    2. the program will process that input into a randomized translation of it translation meaning that it will retain the same data but be worded in a different way. 
+    the program will avoid changing all types of words that should not be changed. 
+    These synonyms will be retrieved through a english dictionary database currently groupdocs database is being used.
+
+    this randomness will be achieved through user random entry in which text will be mapped to a value to cycle through returned synonyms 
+
+
+    3. the program will check the grammer of this randomized translation using a grammer api 
+    it is still unknown how this will be done 
+
+
+notes:
+    1. the program needs a simple UI
+
+    2.in the future the program could automatically grab api responses to be just about fully autonomous. 
+
+    3. the development of this program needs to be documented and reported 
+
+    4. there is copyright citing issues that must be resolved 

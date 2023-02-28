@@ -4,7 +4,7 @@ import com.groupdocs.search.Index;
 
 public class RandomString{
 
-    public String[] returnSynonyms(String query){
+    private String[] returnSynonyms(String query){
         ArrayList<String> listSynonyms = new ArrayList<String>();
         String[] synonyms = new Index().getDictionaries().getSynonymDictionary().getSynonyms(query);
 
@@ -20,12 +20,19 @@ public class RandomString{
         return stringArray;
 
     }
+
+    private String getRandomSynonym(String word,int trueRandomNumber){
+        return"j";
+    }
+
+    public String getRandomString(String inputString){
+
+        return"j";
+    }
     
     
    
       
 
-    public RandomString(){
-        
-    }
+  
 }
