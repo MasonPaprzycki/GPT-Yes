@@ -1,10 +1,21 @@
 package gptyes;
+
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 import com.groupdocs.search.Index;
 
+
 public class RandomString{
-    int trueRandomNumber;
-    String text;
+   
+  
+
+
+ 
     
 
     private String[] getSynonyms(String word){
@@ -33,7 +44,7 @@ public class RandomString{
 
     }
 
-    private String getRandomSynonym(String word){
+    private String getRandomSynonym(String word, int trueRandomNumber){
         String[] synonyms = getSynonyms(word);
         int length = synonyms.length;
 
@@ -53,16 +64,43 @@ public class RandomString{
         
     }
 
-    public String getRandomString(String inputString){
+    public String getRandomString(String text, int trueRandomNumber){
+        ArrayList<String> remove = new ArrayList<String>();
+        remove.add("'");
 
-        return"j";
+
+        String[]doNotChange = {"is","the","why","are","he","she","they","them","him","her","his","to","a","it","it's"};
+        List<String>doNotChangeList  = Arrays.asList(doNotChange);
+
+
+        String[] textRawArray = text.split("");
+        ArrayList<String>textRawArrayList = new ArrayList<String>(Arrays.asList(textRawArray));
+        textRawArrayList.removeAll(remove);
+        String[] stringArray = new String[textRawArrayList.size()];
+        stringArray = textRawArrayList.toArray(stringArray);
+
+        String joinedString = String.join(" ",stringArray);
+
+        String[] sentences = joinedString.split(".");
+
+        for(String sentence : sentences){
+            String[] words =  sentence.split(" ");
+            for(String word : words){
+                if(!doNotChangeList.contains(word)){
+                    word = getRandomSynonym(word,trueRandomNumber);
+                }
+               
+            }
+            sentence = String.join(" ", words);
+
+        }
+        String joined = String.join(".",sentences);
+
+
+        return joined;
     }
     
-    public RandomString(String text, int trueRandomNumber){
-        text =text;
-        trueRandomNumber = trueRandomNumber;
-    }
-   
+  
       
 
   
