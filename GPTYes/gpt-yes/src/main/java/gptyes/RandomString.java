@@ -3,10 +3,16 @@ import java.util.ArrayList;
 import com.groupdocs.search.Index;
 
 public class RandomString{
+    int trueRandomNumber;
+    String text;
+    
 
-    private String[] returnSynonyms(String query){
+    private String[] getSynonyms(String word){
         ArrayList<String> listSynonyms = new ArrayList<String>();
-        String[] synonyms = new Index().getDictionaries().getSynonymDictionary().getSynonyms(query);
+        
+        // close index list 
+
+        String[] synonyms = new Index().getDictionaries().getSynonymDictionary().getSynonyms(word);
 
 
         for (String synonym : synonyms) {
@@ -21,8 +27,24 @@ public class RandomString{
 
     }
 
-    private String getRandomSynonym(String word,int trueRandomNumber){
-        return"j";
+    private String getRandomSynonym(String word){
+        String[] synonyms = getSynonyms(word);
+        int length = synonyms.length;
+
+        
+        if(length>1){
+            return synonyms[(trueRandomNumber %(length))-1] ;
+
+        }
+        else if(length==1){
+            return synonyms[0];
+
+        }
+        else{
+            return word;
+
+        }
+        
     }
 
     public String getRandomString(String inputString){
@@ -30,7 +52,10 @@ public class RandomString{
         return"j";
     }
     
-    
+    public RandomString(String text, int trueRandomNumber){
+        text =text;
+        trueRandomNumber = trueRandomNumber;
+    }
    
       
 
