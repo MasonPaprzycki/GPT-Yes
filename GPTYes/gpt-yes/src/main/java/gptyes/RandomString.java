@@ -9,10 +9,15 @@ public class RandomString{
 
     private String[] getSynonyms(String word){
         ArrayList<String> listSynonyms = new ArrayList<String>();
-        
-        // close index list 
 
-        String[] synonyms = new Index().getDictionaries().getSynonymDictionary().getSynonyms(word);
+   
+
+        Index pass = new Index();
+
+        String[] synonyms = pass.getDictionaries().getSynonymDictionary().getSynonyms(word);
+        pass.close();
+       
+        
 
 
         for (String synonym : synonyms) {
@@ -23,6 +28,7 @@ public class RandomString{
         }
         String[] stringArray = new String[listSynonyms.size()];
         stringArray = listSynonyms.toArray(stringArray);
+     
         return stringArray;
 
     }
