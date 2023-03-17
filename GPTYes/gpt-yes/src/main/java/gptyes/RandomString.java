@@ -18,7 +18,7 @@ public class RandomString{
  
     
 
-    private String[] getSynonyms(String word){
+    static String[] getSynonyms(String word){
         ArrayList<String> listSynonyms = new ArrayList<String>();
 
    
@@ -44,7 +44,7 @@ public class RandomString{
 
     }
 
-    private String getRandomSynonym(String word, int trueRandomNumber){
+    static String getRandomSynonym(String word, int trueRandomNumber){
         String[] synonyms = getSynonyms(word);
         int length = synonyms.length;
 
@@ -64,8 +64,22 @@ public class RandomString{
         
     }
 
-    public String getRandomString(String text, int trueRandomNumber){
-        ArrayList<String> remove = new ArrayList<String>();
+    static String getRandomString(String text, int trueRandomNumber){
+
+
+        String[] sillyString = text.split(" ");
+        for(String word: sillyString){
+            word = getRandomSynonym(word, trueRandomNumber);
+            System.out.println(word);
+
+        }
+        String end = String.join(" ", sillyString); 
+        
+
+
+
+
+        /*ArrayList<String> remove = new ArrayList<String>();
         remove.add("'");
 
 
@@ -94,10 +108,10 @@ public class RandomString{
             sentence = String.join(" ", words);
 
         }
-        String joined = String.join(".",sentences);
+        String joined = String.join(".",sentences); */
 
 
-        return joined;
+        return end;
     }
     
   

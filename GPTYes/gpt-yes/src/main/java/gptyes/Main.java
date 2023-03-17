@@ -1,6 +1,8 @@
 package gptyes;
 
-import gptyes.RandomString;
+import java.util.Scanner;
+
+
 
 
 
@@ -14,11 +16,18 @@ public class Main
     public static void main( String[] args )
 
     {
-        System.out.println("processing");
-        String text = "I traveled to the park";
-        int random = 123344;
-        RandomString randomString = new RandomString();
-        String print = randomString.getRandomString(text, random);
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("enter in a sentence to randomize:");
+
+        String sentence = input.nextLine();
+
+        
+        
+  
+     
+        String print = RandomString.getRandomString(sentence, 2);
+
         System.out.println(print);
         
     }
