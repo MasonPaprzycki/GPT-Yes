@@ -69,47 +69,19 @@ public class RandomString{
 
         String[] sillyString = text.split(" ");
         for(int i =0; i<sillyString.length; i++){
-            sillyString[i] = getRandomSynonym(sillyString[i], trueRandomNumber);
+            String var = getRandomSynonym(sillyString[i], trueRandomNumber);
+
+
+            // for some reason it prints h5n1 even with this code thats really really weird 
+            if(var!="h5n1"){
+                sillyString[i] = var;
+            }
+          
             System.out.println(sillyString[i]);
         }
      
         String end = String.join(" ", sillyString); 
         
-
-
-
-
-        /*ArrayList<String> remove = new ArrayList<String>();
-        remove.add("'");
-
-
-        String[]doNotChange = {"is","the","why","are","he","she","they","them","him","her","his","to","a","it","it's"};
-        List<String>doNotChangeList  = Arrays.asList(doNotChange);
-
-
-        String[] textRawArray = text.split("");
-        ArrayList<String>textRawArrayList = new ArrayList<String>(Arrays.asList(textRawArray));
-        textRawArrayList.removeAll(remove);
-        String[] stringArray = new String[textRawArrayList.size()];
-        stringArray = textRawArrayList.toArray(stringArray);
-
-        String joinedString = String.join(" ",stringArray);
-
-        String[] sentences = joinedString.split(".");
-
-        for(String sentence : sentences){
-            String[] words =  sentence.split(" ");
-            for(String word : words){
-                if(!doNotChangeList.contains(word)){
-                    word = getRandomSynonym(word,trueRandomNumber);
-                }
-               
-            }
-            sentence = String.join(" ", words);
-
-        }
-        String joined = String.join(".",sentences); */
-
 
         return end;
     }
