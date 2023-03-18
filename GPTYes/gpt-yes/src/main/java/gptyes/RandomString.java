@@ -68,11 +68,11 @@ public class RandomString{
 
 
         String[] sillyString = text.split(" ");
-        for(String word: sillyString){
-            word = getRandomSynonym(word, trueRandomNumber);
-            System.out.println(word);
-
+        for(int i =0; i<sillyString.length; i++){
+            sillyString[i] = getRandomSynonym(sillyString[i], trueRandomNumber);
+            System.out.println(sillyString[i]);
         }
+     
         String end = String.join(" ", sillyString); 
         
 
