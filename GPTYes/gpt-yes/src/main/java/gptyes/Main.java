@@ -22,11 +22,16 @@ public class Main
 
         String sentence = input.nextLine();
 
+        System.out.println("enter in a true random number randomly tap on your number pad!");
+        
+        
+        int trueRandomNumber =Integer.parseInt(input.nextLine());
+
         
         
   
      
-        String print = RandomString.getRandomString(sentence, 2);
+        String print = RandomString.getRandomString(sentence, trueRandomNumber);
 
         System.out.println(print);
         
