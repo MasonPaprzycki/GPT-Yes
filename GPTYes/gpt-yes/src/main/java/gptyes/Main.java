@@ -27,6 +27,8 @@ public class Main
         
         int trueRandomNumber =Integer.parseInt(input.nextLine());
 
+        input.close();
+
         
         
   
