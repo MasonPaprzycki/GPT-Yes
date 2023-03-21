@@ -1,37 +1,63 @@
 package gptyes;
-import java.util.ArrayList;
+
+
 import com.groupdocs.search.Index;
 
+
 public class RandomString{
-
-    private String[] returnSynonyms(String query){
-        ArrayList<String> listSynonyms = new ArrayList<String>();
-        String[] synonyms = new Index().getDictionaries().getSynonymDictionary().getSynonyms(query);
+   
+  
 
 
-        for (String synonym : synonyms) {
-            listSynonyms.add(synonym);
+ 
+    
+
+   
+    static String getRandomSynonym(String word, int trueRandomNumber){
+        Index pass = new Index();
+       
+        String[] synonyms = pass.getDictionaries().getSynonymDictionary().getSynonyms(word);
+        pass.close();
+        int length = synonyms.length;
+
+        
+        if(length>1){
+            return synonyms[(trueRandomNumber %(length))-1] ;
+
+        }
+        else if(length==1){
+            return synonyms[0];
+
+        }
+        else{
+            return word;
+        }
+        
+    }
+
+    static String getRandomString(String text, int trueRandomNumber){
+
+
+        String[] sillyString = text.split(" ");
+        for(int i =0; i<sillyString.length; i++){
+
+
+            // turning a into "h5n1" for some reason
+
+            if(sillyString[i]!="a"){
+                sillyString[i] = getRandomSynonym(sillyString[i], trueRandomNumber);
+            }
+          
+            System.out.println(sillyString[i]);
+        }
+     
+        String end = String.join(" ", sillyString); 
         
 
-     
-        }
-        String[] stringArray = new String[listSynonyms.size()];
-        stringArray = listSynonyms.toArray(stringArray);
-        return stringArray;
-
-    }
-
-    private String getRandomSynonym(String word,int trueRandomNumber){
-        return"j";
-    }
-
-    public String getRandomString(String inputString){
-
-        return"j";
+        return end;
     }
     
-    
-   
+  
       
 
   
