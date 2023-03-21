@@ -5,6 +5,8 @@ import com.groupdocs.search.Index;
 
 
 public class RandomString{
+
+    public static final String no = "h5n1";
    
   
 
@@ -42,11 +44,13 @@ public class RandomString{
         for(int i =0; i<sillyString.length; i++){
 
 
-            // turning a into "h5n1" for some reason
 
-            if(sillyString[i]!="a"){
+            if(!sillyString[i].equals("a")){
                 sillyString[i] = getRandomSynonym(sillyString[i], trueRandomNumber);
+              
             }
+          
+            
           
             System.out.println(sillyString[i]);
         }
