@@ -15,7 +15,7 @@ public class RandomString{
         pass.close();
         int length = synonyms.length;
         if(length>1){
-            return synonyms[(trueRandomNumber %(length))-1] ;
+            return synonyms[(trueRandomNumber %(length))] ;
         }
         else if(length==1){
             return synonyms[0];
