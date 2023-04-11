@@ -2,7 +2,7 @@ package gptyes;
 
 import com.groupdocs.search.Index;
 // this api is not mine 
-// I retrieved this api from 
+// I retrieved this api from http://repository.groupdocs.com/repo/ 
 
 public class RandomString{
 
@@ -27,7 +27,8 @@ public class RandomString{
 
     static String getRandomString(String text, int trueRandomNumber){
         // this list is meaningful because I am taking input from the user 
-        //and i have to seperate each of the words and change them independently 
+        //and i have to seperate each of the words to get the synonym for each one because i can't just use an entire sentence as an argument 
+        //the api im using only takes single synonyms for user input 
         String[] sillyString = text.split(" ");
 
         for(int i =0; i<sillyString.length; i++){
